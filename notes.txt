@@ -1,0 +1,13 @@
+Todos:
+1. Set up Postgres database
+  - Table with websites to crawl
+  - Table with articles
+    - Institution
+    - Headline
+    - URL
+    - Relevant boolean
+2. Express server with REST API
+  - GET request for getting the webistes to crawl
+  - POST request for storing crawled articles in database
+  - More...
+3. REACT Frontend
