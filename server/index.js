@@ -16,7 +16,7 @@ app.post('/websites', async(req, res) => {
     //body: JSON.stringify(this.state)
     //destructuring of the json
     const { institution, homepage, newspage, category, sports, geo, article_container, headline_element, href_element } = req.body;
-    const newWebsite = await pool.query('INSERT INTO sponeo (institution, homepage, newspage, category, sports, geo, article_container, headline_element, href_element) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *', [institution, homepage, newspage, category, sports, geo, article_container, headline_element, href_element]
+    const newWebsite = await pool.query('INSERT INTO websites (institution, homepage, newspage, category, sports, geo, article_container, headline_element, href_element) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *', [institution, homepage, newspage, category, sports, geo, article_container, headline_element, href_element]
   );
 
   res.json(newWebsite.rows[0]);
