@@ -7,3 +7,36 @@
 body {
   font-family: Arial, sans-serif;
 }
+
+input {
+  font-size: 1rem;
+  color: #333;
+  margin: 0.5rem;
+  padding: 0.75rem;
+  height: 20px;
+  width: 25rem;
+  border-radius: 5px;
+  border: 1.5px #333 solid;
+}
+
+input:focus {
+  outline: none;
+  border: 1.5px #aa0000 solid;
+}
+
+button {
+  font-size: 1rem;
+  color: #f3f3f3;
+  background-color: #aa0000;
+  margin: 1rem;
+  padding: 0.5rem;
+  width: 10rem;
+  border-radius: 5px;
+  border: 1.5px #333 solid;
+}
+
+button:hover {
+  color: #aa0000;
+  background: #f3f3f3;
+  border: 1.5px #aa0000 solid;
+}
