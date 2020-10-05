@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +7,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 input {
@@ -39,4 +41,5 @@ button:hover {
   color: #aa0000;
   background: #f3f3f3;
   border: 1.5px #aa0000 solid;
+  cursor: pointer;
 }
