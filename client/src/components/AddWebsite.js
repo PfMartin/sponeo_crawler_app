@@ -25,7 +25,7 @@ class AddWebsite extends React.Component {
   onSubmitForm = async(e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/websites', {
+      const response = await fetch('http://localhost:5000/addWebsite', {
         method: 'POST', //Post method for sending data to the database
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(this.state)
@@ -40,14 +40,14 @@ class AddWebsite extends React.Component {
 
   render() {
     const backgroundStyle = {
-      background: '#aa0000',
+      background: '#000',
       display: 'flex',
       justifyContent: 'center',
       textAlign: 'center'
     }
     const formStyle = {
       margin: '2rem',
-      width: '38rem',
+      width: '600px',
       padding: '10px',
       borderRadius: '5px',
       textAlign: 'center',
