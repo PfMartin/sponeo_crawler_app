@@ -7,10 +7,11 @@ const pool = require('./db.js');
 app.use(cors());
 app.use(express.json()); //for req.body
 
-//ROUTES//
-
+/********************************
+ROUTES
+********************************/
 //Add a new website to the database
-app.post('/websites', async(req, res) => {
+app.post('/addWebsite', async(req, res) => {
   try {
     //From client:
     //body: JSON.stringify(this.state)
@@ -20,10 +21,17 @@ app.post('/websites', async(req, res) => {
   );
 
   res.json(newWebsite.rows[0]);
+  console.log('Website has been added: ')
+  console.log(req.body);
   } catch(err) {
     console.error(err.message);
   }
 })
+
+app.get('/crawl')
+
+//Crawl websites and add them to the database
+
 
 const port = 5000;
 
