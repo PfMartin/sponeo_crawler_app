@@ -17,7 +17,7 @@ input {
   padding: 0.75rem;
   height: 20px;
   width: 25rem;
-  border-radius: 5px;
+  border-radius: 2px;
   border: 1.5px #333 solid;
 }
 
@@ -33,13 +33,13 @@ button {
   margin: 1rem;
   padding: 0.5rem;
   width: 10rem;
-  border-radius: 5px;
-  border: 1.5px #333 solid;
+  border-radius: 2px;
+  border: 0.08rem #333 solid;
 }
 
 button:hover {
   color: #aa0000;
   background: #f3f3f3;
-  border: 1.5px #aa0000 solid;
+  border: 0.08rem #aa0000 solid;
   cursor: pointer;
 }

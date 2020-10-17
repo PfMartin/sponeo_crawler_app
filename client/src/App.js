@@ -37,7 +37,7 @@ class App extends React.Component{
 
     return(
       <Fragment>
-        <Navbar pageHandler={this.pageHandler}/>
+        <Navbar pageHandler={this.pageHandler} page={this.state.page}/>
         {currentPage}
       </Fragment>
     )

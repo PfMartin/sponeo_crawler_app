@@ -46,10 +46,11 @@ class AddWebsite extends React.Component {
       textAlign: 'center'
     }
     const formStyle = {
-      margin: '2rem',
+      margin: '1rem',
       width: '600px',
       padding: '10px',
-      borderRadius: '5px',
+      borderRadius: '2px',
+      border: '#aa0000 solid 0.08rem',
       textAlign: 'center',
       background: '#333',
       color: '#f3f3f3'
@@ -58,18 +59,12 @@ class AddWebsite extends React.Component {
     const line = {
       margin: '0 auto',
       padding: '0.25rem',
-      borderBottom: '1.5px solid #aa0000',
+      borderBottom: '0.08rem solid #aa0000',
       width: '5rem'
     }
 
     const p1 = {
       padding: '1rem'
-    }
-    const p05 = {
-      padding: '0.5rem'
-    }
-    const p025 = {
-      padding: '0.25rem'
     }
 
     return(
@@ -82,7 +77,7 @@ class AddWebsite extends React.Component {
 
           <div style={line}></div>
 
-          <h2 style={p1}>1. Information on the website</h2>
+          <h2 style={p1}>1. Website Details</h2>
           <label>
             <p>Institution</p>
             <input
@@ -140,7 +135,7 @@ class AddWebsite extends React.Component {
 
           <div style={line}></div>
 
-          <h2 style={p1}>2. Information on the structure of the website</h2>
+          <h2 style={p1}>2. Structure Of The Website</h2>
           <label>
             <p>Container element of each article</p>
             <input

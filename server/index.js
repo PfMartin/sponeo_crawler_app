@@ -10,6 +10,15 @@ app.use(express.json()); //for req.body
 /********************************
 ROUTES
 ********************************/
+//Homepage
+app.get('/', async(req, res) => {
+  try {
+    res.send('<h1>Welcome to the Sponeo Web Crawler</h1>')
+  } catch (err) {
+    console.error(err.message);
+  }
+})
+
 //Add a new website to the database
 app.post('/addWebsite', async(req, res) => {
   try {

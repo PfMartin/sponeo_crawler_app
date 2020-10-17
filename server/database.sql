@@ -9,9 +9,9 @@ CREATE TABLE websites (
   category VARCHAR(32),
   sports VARCHAR(32),
   geo VARCHAR(32),
-  article_container VARCHAR(32),
-  headline_element VARCHAR(32),
-  href_element VARCHAR(32)
+  article_container VARCHAR(128),
+  headline_element VARCHAR(128),
+  href_element VARCHAR(128)
 );
 
 /* Initial Value*/

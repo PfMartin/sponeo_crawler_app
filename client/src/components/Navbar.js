@@ -27,14 +27,18 @@ class Navbar extends React.Component {
       color: '#fff',
       listStyle: 'none',
       width: '600px',
-      borderRadius: '0 0 5px 5px',
+      borderRadius: '0 0 2px 2px',
     }
 
     const liStyle = {
       padding: '1rem 1rem',
       // border: '1px solid #aa0000',
       width: '150px',
-      borderRadius: '0 0 5px 5px'
+      borderRadius: '0 0 2px 2px'
+    }
+
+    const underline = {
+      borderBottom: '#aa0000 solid 0.08rem'
     }
 
     return(
@@ -42,7 +46,7 @@ class Navbar extends React.Component {
         <div style={{background: '#000'}}>
           <ul style={navStyle}>
             <li
-              style={liStyle}
+              style={this.props.page === 'sponeo' ? {...liStyle, ...underline} : liStyle}
               onMouseOver={this.hoverOverLi}
               onMouseOut={this.hoverOutLi}
               onClick={this.props.pageHandler}
@@ -51,7 +55,7 @@ class Navbar extends React.Component {
               Sponeo
             </li>
             <li
-              style={liStyle}
+              style={this.props.page === 'addWebsite' ? {...liStyle, ...underline} : liStyle}
               onMouseOver={this.hoverOverLi}
               onMouseOut={this.hoverOutLi}
               onClick={this.props.pageHandler}
