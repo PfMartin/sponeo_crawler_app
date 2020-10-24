@@ -31,10 +31,11 @@ class Navbar extends React.Component {
     }
 
     const liStyle = {
+      display: 'inline-block',
       padding: '1rem 1rem',
       // border: '1px solid #aa0000',
       width: '150px',
-      borderRadius: '0 0 2px 2px'
+      borderRadius: '0 0 2px 2px',
     }
 
     const underline = {

@@ -43,7 +43,7 @@ class AddWebsite extends React.Component {
       background: '#000',
       display: 'flex',
       justifyContent: 'center',
-      textAlign: 'center'
+      textAlign: 'center',
     }
     const formStyle = {
       margin: '1rem',
