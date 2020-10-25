@@ -14,30 +14,38 @@ const startBrowser = async () => {
     return headlessBrowser;
 };
 
-// const crawl = async (browser) => {
-//     let page;
+const crawl = async (browser) => {
+    let $;
+    let page;
+    let titles = [];
+    let hrefs = [];
 
-//     console.log(browser);
+    try {
+        page = await browser.newPage();
+        await page.goto('https://news.ycombinator.com', {
+            waitUntil: 'load',
+            timeout: 30000
+        });
+        let content = await page.content();
+        $ = await cheerio.load(content);
+        $('a.storylink').each((index, element) => {
+          titles.push($(element).text().trim());
+          hrefs.push($(element).attr('href'));
+        })
 
-//     try {
-//         page = await browser.newPage();
-//         await page.goto('https://news.ycombinator.com', {
-//             waitUntil: 'load',
-//             timeout: 30000
-//         });
-//         let content = await page.content();
-//         $ = cheerio.load(content);
-//     } catch(err) {
-//         console.error(err.message);
-//     }
 
-//     console.log($);
-// }
+    } catch(err) {
+        console.error(err.message);
+    }
+
+    console.log(titles);
+    console.log(hrefs);
+}
 
 main = async () => {
     const headlessBrowser = await startBrowser();
-
-    console.log('Setup')
+    await crawl(headlessBrowser);
+    await headlessBrowser.close();
 }
 
 main();
