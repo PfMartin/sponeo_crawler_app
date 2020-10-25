@@ -3,6 +3,8 @@ const app = express();
 const cors = require('cors');
 const pool = require('./db.js');
 
+const crawler = require('./crawler.js');
+
 //middleware
 app.use(cors());
 app.use(express.json()); //for req.body
@@ -37,7 +39,15 @@ app.post('/addWebsite', async(req, res) => {
   }
 })
 
-app.get('/crawl')
+app.get('/crawl', async(req, res) => {
+  try {
+    crawler.crawl();
+  } catch(err) {
+    console.error(err.message);
+  }
+
+  res.redirect('/')
+})
 
 //Crawl websites and add them to the database
 

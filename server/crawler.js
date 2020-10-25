@@ -3,25 +3,21 @@ const puppeteer = require('puppeteer');
 
 console.log('Package setup done');
 
-const startBrowser = async () => {
+module.exports.crawl = async (browser) => {
     const headlessBrowser = await puppeteer.launch({
-        headless: false
+      headless: false,
     });
-    headlessBrowser.on('disconnected', () => {
-        console.log('Browser closed');
+    headlessBrowser.on('diconnected', () => {
+      console.log('Browser closed');
     });
 
-    return headlessBrowser;
-};
-
-const crawl = async (browser) => {
     let $;
     let page;
     let titles = [];
     let hrefs = [];
 
     try {
-        page = await browser.newPage();
+        page = await headlessBrowser.newPage();
         await page.goto('https://news.ycombinator.com', {
             waitUntil: 'load',
             timeout: 30000
@@ -40,12 +36,18 @@ const crawl = async (browser) => {
 
     console.log(titles);
     console.log(hrefs);
+
+    headlessBrowser.close();
 }
 
-main = async () => {
-    const headlessBrowser = await startBrowser();
-    await crawl(headlessBrowser);
-    await headlessBrowser.close();
-}
+// main = async () => {
+//     const headlessBrowser = await startBrowser();
+//     await crawl(headlessBrowser);
+//     await headlessBrowser.close();
+// }
+//
+// main();
 
-main();
+module.exports.logging = () => {
+  console.log('Import worked');
+}
