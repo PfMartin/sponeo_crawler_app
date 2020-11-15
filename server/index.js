@@ -1,9 +1,14 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const pool = require('./db.js');
+
+const dataBaseFunctions = require('./db.js');
+const addWebsite = dataBaseFunctions.addWebsite;
+const getWebsite = dataBaseFunctions.getWebsite;
 
 const crawler = require('./crawler.js');
+const crawl = crawler.crawl;
+const logging = crawler.logging;
 
 //middleware
 app.use(cors());
@@ -27,13 +32,11 @@ app.post('/addWebsite', async(req, res) => {
     //From client:
     //body: JSON.stringify(this.state)
     //destructuring of the json
-    const { institution, homepage, newspage, category, sports, geo, article_container, headline_element, href_element } = req.body;
-    const newWebsite = await pool.query('INSERT INTO websites (institution, homepage, newspage, category, sports, geo, article_container, headline_element, href_element) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *', [institution, homepage, newspage, category, sports, geo, article_container, headline_element, href_element]
-  );
+    const { institution, homepage, newspage, category, sports, geo, article_container, headline_element, href_element } = await req.body;
+    await addWebsite(institution, homepage, newspage, category, sports, geo, article_container, headline_element, href_element);
 
-  res.json(newWebsite.rows[0]);
-  console.log('Website has been added: ')
-  console.log(req.body);
+    res.send('Successful');
+    console.log(`Website has been added: ${req.body}`);
   } catch(err) {
     console.error(err.message);
   }
@@ -41,7 +44,11 @@ app.post('/addWebsite', async(req, res) => {
 
 app.get('/crawl', async(req, res) => {
   try {
-    crawler.crawl();
+    const data = await getWebsite(institution);
+    console.log(data);
+
+    //Pass the data to the crawler and return
+    const articles = await crawl(data);
   } catch(err) {
     console.error(err.message);
   }

@@ -8,4 +8,19 @@ const pool = new Pool({
   database: 'sponeo'
 });
 
-module.exports = pool;
+const addWebsite = (institution, homepage, newspage, category, sports, geo, article_container, headline_element, href_element) => {
+  pool.query('INSERT INTO websites (institution, homepage, newspage, category, sports, geo, article_container, headline_element, href_element) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *', [institution, homepage, newspage, category, sports, geo, article_container, headline_element, href_element]);
+};
+
+const getWebsite = async (institution) => {
+  const website = await pool.query('SELECT * FROM websites WHERE institution = $1', [institution]);
+  const rows = await website.rows[0];
+
+  return rows;
+}
+
+
+module.exports = {
+  addWebsite: addWebsite,
+  getWebsite: getWebsite,
+};

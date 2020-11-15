@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer');
 
 console.log('Package setup done');
 
-module.exports.crawl = async (browser) => {
+const crawl = async (browser) => {
     const headlessBrowser = await puppeteer.launch({
       headless: false,
     });
@@ -48,6 +48,11 @@ module.exports.crawl = async (browser) => {
 //
 // main();
 
-module.exports.logging = () => {
+const logging = () => {
   console.log('Import worked');
+}
+
+module.exports = {
+  crawl: crawl,
+  logging: logging,
 }
