@@ -1,9 +1,11 @@
 const cheerio = require('cheerio');
 const puppeteer = require('puppeteer');
 
-console.log('Package setup done');
-
-const crawl = async (browser) => {
+//newspage: address of the website
+//articleContainer: Contains both the headline and the link
+//headlineElement: Contains the headline text
+//hrefElement: Contains the link to the full article
+const crawl = async (newspage, articleContainer, headlineElement, hrefElement) => {
     const headlessBrowser = await puppeteer.launch({
       headless: false,
     });
@@ -18,15 +20,17 @@ const crawl = async (browser) => {
 
     try {
         page = await headlessBrowser.newPage();
-        await page.goto('https://news.ycombinator.com', {
+        await page.goto(newspage, {
             waitUntil: 'load',
             timeout: 30000
         });
         let content = await page.content();
         $ = await cheerio.load(content);
-        $('a.storylink').each((index, element) => {
-          titles.push($(element).text().trim());
-          hrefs.push($(element).attr('href'));
+        $(articleContainer).each((index, element) => {
+          //Search inside the article container for the headlineElement, get the text of it, trim the text and push it to the list of titles
+          titles.push($(element).find(headlineElement).text().trim());
+          //Search for the hrefElement and push it to the list of hrefs
+          hrefs.push($(element).attr(hrefElement));
         })
 
 
