@@ -1,24 +1,20 @@
 const crawler = require('./crawler.js');
-
 const crawl = crawler.crawl;
 const logging = crawler.logging;
 
-const hackerNews = {
-  newsPage: 'http://news.ycombinator.com/',
-  headlineElement: 'a.storylink',
-  hrefElement: 'href'
+const dataBaseFunctions = require('./db.js');
+const getCrawlInfo = dataBaseFunctions.getCrawlInfo;
+
+const institutions = ['FC Bayern', 'Borussia Dortmund']
+
+const printInfo = async () => {
+  institutions.forEach(async (institution) => {
+    const info = await getCrawlInfo(institution);
+    const articles = await crawl(info.newspage, info.article_container, info.headline_element, info.href_element);
+
+    console.log(articles);
+  })
 }
 
-const fcbayern = {
-  newsPage: 'https://fcbayern.com/de/news#',
-  articleContainer: 'a.text-teaser.news-overview-teaser',
-  headlineElement: 'div.text-content div.header5',
-  hrefElement: 'href'
-}
-
-
-
-
-
-// crawl(hackerNews.newsPage, hackerNews.headlineElement, hackerNews.hrefElement);
-crawl(fcbayern.newsPage, fcbayern.articleContainer, fcbayern.headlineElement, fcbayern.hrefElement);
+printInfo();
+// crawl(bvb.newsPage, bvb.articleContainer, bvb.headlineElement, bvb.hrefElement);

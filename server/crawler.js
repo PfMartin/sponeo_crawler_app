@@ -1,6 +1,9 @@
 const cheerio = require('cheerio');
 const puppeteer = require('puppeteer');
 
+// const databaseFunctions = require('./db.js');
+// const getCrawlInfo = dataBaseFunctions.getCrawlInfo;
+
 //newspage: address of the website
 //articleContainer: Contains both the headline and the link
 //headlineElement: Contains the headline text
@@ -15,8 +18,10 @@ const crawl = async (newspage, articleContainer, headlineElement, hrefElement) =
 
     let $;
     let page;
-    let titles = [];
-    let hrefs = [];
+    let articles = {
+      titles: [],
+      hrefs: []
+    }
 
     try {
         page = await headlessBrowser.newPage();
@@ -28,9 +33,13 @@ const crawl = async (newspage, articleContainer, headlineElement, hrefElement) =
         $ = await cheerio.load(content);
         $(articleContainer).each((index, element) => {
           //Search inside the article container for the headlineElement, get the text of it, trim the text and push it to the list of titles
-          titles.push($(element).find(headlineElement).text().trim());
+          articles.titles.push($(element).find(headlineElement).text().trim());
           //Search for the hrefElement and push it to the list of hrefs
-          hrefs.push($(element).attr(hrefElement));
+          if(hrefElement === '') { //href is directly in articleContainer element
+            articles.hrefs.push($(element).attr('href'));
+          } else {                //href is in some child element
+            articles.hrefs.push($(element).find(hrefElement).attr('href'));
+          }
         })
 
 
@@ -38,10 +47,12 @@ const crawl = async (newspage, articleContainer, headlineElement, hrefElement) =
         console.error(err.message);
     }
 
-    console.log(titles);
-    console.log(hrefs);
+    // console.log(titles);
+    // console.log(hrefs);
 
     headlessBrowser.close();
+
+    return articles;
 }
 
 // main = async () => {
