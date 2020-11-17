@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const dataBaseFunctions = require('./db.js');
 const addWebsite = dataBaseFunctions.addWebsite;
-const getWebsite = dataBaseFunctions.getWebsite;
+const getCrawlInfo = dataBaseFunctions.getCrawlInfo;
 
 const crawler = require('./crawler.js');
 const crawl = crawler.crawl;
@@ -44,7 +44,7 @@ app.post('/addWebsite', async(req, res) => {
 
 app.get('/crawl', async(req, res) => {
   try {
-    const data = await getWebsite(institution);
+    const data = await getCrawlInfo(institution);
     console.log(data);
 
     //Pass the data to the crawler and return
