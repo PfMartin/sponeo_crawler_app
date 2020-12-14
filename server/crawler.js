@@ -38,30 +38,23 @@ const crawl = async (newspage, articleContainer, headlineElement, hrefElement) =
           if(hrefElement === '') { //href is directly in articleContainer element
             articles.hrefs.push($(element).attr('href'));
           } else {                //href is in some child element
-            articles.hrefs.push($(element).find(hrefElement).attr('href'));
+            articles.hrefs.push($(element).attr(hrefElement));
           }
         })
-
 
     } catch(err) {
         console.error(err.message);
     }
 
-    // console.log(titles);
-    // console.log(hrefs);
+    console.log(articles.titles);
+    console.log(articles.hrefs);
 
     headlessBrowser.close();
 
     return articles;
 }
 
-// main = async () => {
-//     const headlessBrowser = await startBrowser();
-//     await crawl(headlessBrowser);
-//     await headlessBrowser.close();
-// }
-//
-// main();
+// crawl('https://fcbayern.com/de/news', 'a.text-teaser.news-overview-teaser.type-grid', 'div.header5', 'href');
 
 const logging = () => {
   console.log('Import worked');
