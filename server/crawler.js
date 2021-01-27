@@ -38,7 +38,7 @@ const crawl = async (newspage, articleContainer, headlineElement, hrefElement) =
           if(hrefElement === '') { //href is directly in articleContainer element
             articles.hrefs.push($(element).attr('href'));
           } else {                //href is in some child element
-            articles.hrefs.push($(element).attr(hrefElement));
+            articles.hrefs.push($(element).find(hrefElement).attr('href'));
           }
         })
 
@@ -46,8 +46,8 @@ const crawl = async (newspage, articleContainer, headlineElement, hrefElement) =
         console.error(err.message);
     }
 
-    console.log(articles.titles);
-    console.log(articles.hrefs);
+    // console.log(articles.titles);
+    // console.log(articles.hrefs);
 
     headlessBrowser.close();
 
