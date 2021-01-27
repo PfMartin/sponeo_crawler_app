@@ -38,7 +38,7 @@ const crawl = async (newspage, articleContainer, headlineElement, hrefElement) =
           if(hrefElement === '') { //href is directly in articleContainer element
             articles.hrefs.push($(element).attr('href'));
           } else {                //href is in some child element
-            articles.hrefs.push($(element).find(hrefElement).attr('href'));
+            articles.hrefs.push($(element).attr(hrefElement));
           }
         })
 
