@@ -46,8 +46,8 @@ const crawl = async (newspage, articleContainer, headlineElement, hrefElement) =
         console.error(err.message);
     }
 
-    console.log(articles.titles);
-    console.log(articles.hrefs);
+    // console.log(articles.titles);
+    // console.log(articles.hrefs);
 
     headlessBrowser.close();
 
