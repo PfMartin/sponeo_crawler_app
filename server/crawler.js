@@ -5,9 +5,6 @@ const dataBaseFunctions = require('./db.js');
 const getCrawlInfo = dataBaseFunctions.getCrawlInfo;
 const storeArticle = dataBaseFunctions.storeArticle;
 
-// const databaseFunctions = require('./db.js');
-// const getCrawlInfo = dataBaseFunctions.getCrawlInfo;
-
 //newspage: address of the website
 //articleContainer: Contains both the headline and the link
 //headlineElement: Contains the headline text
@@ -75,18 +72,20 @@ const crawl = async (site, newspage, articleContainer, headlineElement, hrefElem
     }
 
     headlessBrowser.close();
-
+    console.log(articles);
     return articles;
 }
 
-const logging = () => {
-  console.log('Import worked');
-}
-
-
-
+// Function that crawls all websites defined inside the function
 const crawlAll = () => {
-  const site = ['fcbayern.com', 'dierotenbullen.com'];
+  const site = [
+    // 'fcbayern.com',
+    // 'dierotenbullen.com',
+    // 'bvb.de',
+    // 'borussia.de',
+    // 'bayer04.de', // AngularJS website doesn't work so far
+    'schalke04.de',
+  ];
 
   site.forEach(async (element, index) => {
     const info = await getCrawlInfo(element);
@@ -104,12 +103,8 @@ const crawlAll = () => {
   })
 }
 
-
-
-crawlAll();
+// crawlAll();
 
 module.exports = {
-  crawl: crawl,
-  logging: logging,
   crawlAll: crawlAll
 }

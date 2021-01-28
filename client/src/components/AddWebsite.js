@@ -4,7 +4,7 @@ class AddWebsite extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      institution: '',
+      site: '',
       homepage: '',
       newspage: '',
       category: '',
@@ -82,8 +82,8 @@ class AddWebsite extends React.Component {
             <p>Institution</p>
             <input
               type='text'
-              name='institution'
-              value={this.state.institution}
+              name='site'
+              value={this.state.site}
               onChange={this.setValue}
             />
           </label>

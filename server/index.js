@@ -7,8 +7,7 @@ const addWebsite = dataBaseFunctions.addWebsite;
 const getCrawlInfo = dataBaseFunctions.getCrawlInfo;
 
 const crawler = require('./crawler.js');
-const crawl = crawler.crawl;
-const logging = crawler.logging;
+const crawlAll = crawler.crawlAll;
 
 //middleware
 app.use(cors());
@@ -36,7 +35,7 @@ app.post('/addWebsite', async(req, res) => {
     await addWebsite(site, homepage, newspage, category, sports, geo, article_container, headline_element, href_element);
 
     res.send('Successful');
-    console.log(`Website has been added: ${req.body}`);
+    console.log(`Website has been added`);
   } catch(err) {
     console.error(err.message);
   }
@@ -44,11 +43,7 @@ app.post('/addWebsite', async(req, res) => {
 
 app.get('/crawl', async(req, res) => {
   try {
-    const data = await getCrawlInfo(site);
-    console.log(data);
-
-    //Pass the data to the crawler and return
-    const articles = await crawl(data);
+    crawlAll();
   } catch(err) {
     console.error(err.message);
   }
