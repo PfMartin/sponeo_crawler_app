@@ -19,8 +19,16 @@ const getCrawlInfo = async (institution) => {
   return rows;
 }
 
+const storeArticle = (tStamp, institution, headline, href) => {
+  pool.query('INSERT INTO articles (t_stamp, institution, headline, href) VALUES (TO_TIMESTAMP($1), $2, $3, $4) RETURNING *', [tStamp, institution, headline, href]);
+
+  console.log(`${tStamp}: ${institution}, ${headline}, ${href}`);
+
+}
+
 
 module.exports = {
   addWebsite: addWebsite,
   getCrawlInfo: getCrawlInfo,
+  storeArticle: storeArticle
 };
