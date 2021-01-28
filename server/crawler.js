@@ -12,7 +12,7 @@ const storeArticle = dataBaseFunctions.storeArticle;
 //articleContainer: Contains both the headline and the link
 //headlineElement: Contains the headline text
 //hrefElement: Contains the link to the full article
-const crawl = async (institution, newspage, articleContainer, headlineElement, hrefElement) => {
+const crawl = async (site, newspage, articleContainer, headlineElement, hrefElement) => {
     const headlessBrowser = await puppeteer.launch({
       headless: false,
     });
@@ -23,7 +23,7 @@ const crawl = async (institution, newspage, articleContainer, headlineElement, h
     let $;
     let page;
     let articles = {
-      institutions: [],
+      site: [],
       headlines: [],
       hrefs: []
     }
@@ -40,15 +40,28 @@ const crawl = async (institution, newspage, articleContainer, headlineElement, h
         let breakFlag = true;
 
         $(articleContainer).each((index, element) => {
-          articles.institutions.push(institution);
+          articles.site.push(site);
           // Search inside the article container for the headlineElement, get the text of it, trim the text and push it to the list of headlines
           articles.headlines.push($(element).find(headlineElement).text().trim());
           // Search for the hrefElement and push it to the list of hrefs
+          let href = '';
+
           if(hrefElement === '') { //href is directly in articleContainer element
-            articles.hrefs.push($(element).attr('href'));
-          } else {                //href is in some child element
-            articles.hrefs.push($(element).find(hrefElement).attr('href'));
+            href = $(element).attr('href');
+          } else { //href is in some child element
+            href = $(element).find(hrefElement).attr('href');
           }
+
+          // Logic for unified hrefs
+          // Check if the href doesn't include the domain name -> If true add https://www.domainname
+          // Check if href doesn't include www. -> If true add https://www. and cut the https:// from the original href
+          if(!href.includes(articles.site[index])) {
+            href = `https://www.${articles.site[index]}${href}`;
+          } else if(!href.includes('www.')) {
+            href = `https://www.${href.slice(8)}`;
+          }
+
+          articles.hrefs.push(href);
 
           // Break out from cheerio's each loop
           if(articles.hrefs.length > 4) {
@@ -57,7 +70,6 @@ const crawl = async (institution, newspage, articleContainer, headlineElement, h
 
           return breakFlag;
         })
-
     } catch(err) {
         console.error(err.message);
     }
@@ -71,24 +83,28 @@ const logging = () => {
   console.log('Import worked');
 }
 
-const crawlAll = () => {
-  const institutions = ['FC Bayern Muenchen', 'RB Leipzig'];
 
-  institutions.forEach(async (element, index) => {
+
+const crawlAll = () => {
+  const site = ['fcbayern.com', 'dierotenbullen.com'];
+
+  site.forEach(async (element, index) => {
     const info = await getCrawlInfo(element);
-    const articles = await crawl(info.institution, info.newspage, info.article_container, info.headline_element, info.href_element);
+    const articles = await crawl(info.site, info.newspage, info.article_container, info.headline_element, info.href_element);
 
     const tStamp = Math.round(new Date().getTime() / 1000);
 
-    articles.institutions.forEach((element, index) => {
-      const institution = articles.institutions[index];
+    articles.site.forEach((element, index) => {
+      const site = articles.site[index];
       const headline = articles.headlines[index];
       const href = articles.hrefs[index];
 
-      storeArticle(tStamp, institution, headline, href);
+      storeArticle(tStamp, site, headline, href);
     })
   })
 }
+
+
 
 crawlAll();
 

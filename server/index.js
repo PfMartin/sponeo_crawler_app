@@ -32,8 +32,8 @@ app.post('/addWebsite', async(req, res) => {
     //From client:
     //body: JSON.stringify(this.state)
     //destructuring of the json
-    const { institution, homepage, newspage, category, sports, geo, article_container, headline_element, href_element } = await req.body;
-    await addWebsite(institution, homepage, newspage, category, sports, geo, article_container, headline_element, href_element);
+    const { site, homepage, newspage, category, sports, geo, article_container, headline_element, href_element } = await req.body;
+    await addWebsite(site, homepage, newspage, category, sports, geo, article_container, headline_element, href_element);
 
     res.send('Successful');
     console.log(`Website has been added: ${req.body}`);
@@ -44,7 +44,7 @@ app.post('/addWebsite', async(req, res) => {
 
 app.get('/crawl', async(req, res) => {
   try {
-    const data = await getCrawlInfo(institution);
+    const data = await getCrawlInfo(site);
     console.log(data);
 
     //Pass the data to the crawler and return
