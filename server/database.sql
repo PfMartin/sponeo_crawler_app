@@ -21,13 +21,11 @@ INSERT INTO websites
 VALUES
   ('FC Bayern Muenchen', 'https://fcbayern.com/de', 'https://fcbayern.com/de/news', 'Club', 'Soccer', 'national', 'a.text-teaser.news-overview-teaser.type-grid', 'div.header5', 'href');
 
-CREATE TABLE articles (
-  id SERIAL PRIMARY KEY,
-  institution VARCHAR(64),
-  homepage VARCHAR(128),
-  url VARCHAR(128),
-  headline VARCHAR(64)
-);
-
 
 /*Table for all articles*/
+CREATE TABLE articles (
+  t_stamp TIMESTAMP,
+  institution VARCHAR(64),
+  headline VARCHAR(128),
+  href VARCHAR(256)
+);

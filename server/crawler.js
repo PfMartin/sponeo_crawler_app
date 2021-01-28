@@ -3,6 +3,7 @@ const puppeteer = require('puppeteer');
 
 const dataBaseFunctions = require('./db.js');
 const getCrawlInfo = dataBaseFunctions.getCrawlInfo;
+const storeArticle = dataBaseFunctions.storeArticle;
 
 // const databaseFunctions = require('./db.js');
 // const getCrawlInfo = dataBaseFunctions.getCrawlInfo;
@@ -22,8 +23,8 @@ const crawl = async (institution, newspage, articleContainer, headlineElement, h
     let $;
     let page;
     let articles = {
-      institution: [],
-      titles: [],
+      institutions: [],
+      headlines: [],
       hrefs: []
     }
 
@@ -39,9 +40,9 @@ const crawl = async (institution, newspage, articleContainer, headlineElement, h
         let breakFlag = true;
 
         $(articleContainer).each((index, element) => {
-          articles.institution.push(institution);
-          // Search inside the article container for the headlineElement, get the text of it, trim the text and push it to the list of titles
-          articles.titles.push($(element).find(headlineElement).text().trim());
+          articles.institutions.push(institution);
+          // Search inside the article container for the headlineElement, get the text of it, trim the text and push it to the list of headlines
+          articles.headlines.push($(element).find(headlineElement).text().trim());
           // Search for the hrefElement and push it to the list of hrefs
           if(hrefElement === '') { //href is directly in articleContainer element
             articles.hrefs.push($(element).attr('href'));
@@ -77,7 +78,15 @@ const crawlAll = () => {
     const info = await getCrawlInfo(element);
     const articles = await crawl(info.institution, info.newspage, info.article_container, info.headline_element, info.href_element);
 
-    console.log(articles);
+    const tStamp = Math.round(new Date().getTime() / 1000);
+
+    articles.institutions.forEach((element, index) => {
+      const institution = articles.institutions[index];
+      const headline = articles.headlines[index];
+      const href = articles.hrefs[index];
+
+      storeArticle(tStamp, institution, headline, href);
+    })
   })
 }
 
@@ -86,4 +95,5 @@ crawlAll();
 module.exports = {
   crawl: crawl,
   logging: logging,
+  crawlAll: crawlAll
 }
