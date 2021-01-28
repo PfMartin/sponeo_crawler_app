@@ -1,6 +1,6 @@
 CREATE DATABASE sponeo;
 
-/* done*/
+/* Table for website information*/
 CREATE TABLE websites (
   id SERIAL PRIMARY KEY,
   institution VARCHAR(64),
@@ -28,3 +28,6 @@ CREATE TABLE articles (
   url VARCHAR(128),
   headline VARCHAR(64)
 );
+
+
+/*Table for all articles*/
