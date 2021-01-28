@@ -1,6 +1,9 @@
 const cheerio = require('cheerio');
 const puppeteer = require('puppeteer');
 
+const dataBaseFunctions = require('./db.js');
+const getCrawlInfo = dataBaseFunctions.getCrawlInfo;
+
 // const databaseFunctions = require('./db.js');
 // const getCrawlInfo = dataBaseFunctions.getCrawlInfo;
 
@@ -8,7 +11,7 @@ const puppeteer = require('puppeteer');
 //articleContainer: Contains both the headline and the link
 //headlineElement: Contains the headline text
 //hrefElement: Contains the link to the full article
-const crawl = async (newspage, articleContainer, headlineElement, hrefElement) => {
+const crawl = async (institution, newspage, articleContainer, headlineElement, hrefElement) => {
     const headlessBrowser = await puppeteer.launch({
       headless: false,
     });
@@ -19,6 +22,7 @@ const crawl = async (newspage, articleContainer, headlineElement, hrefElement) =
     let $;
     let page;
     let articles = {
+      institution: [],
       titles: [],
       hrefs: []
     }
@@ -31,34 +35,53 @@ const crawl = async (newspage, articleContainer, headlineElement, hrefElement) =
         });
         let content = await page.content();
         $ = await cheerio.load(content);
+
+        let breakFlag = true;
+
         $(articleContainer).each((index, element) => {
-          //Search inside the article container for the headlineElement, get the text of it, trim the text and push it to the list of titles
+          articles.institution.push(institution);
+          // Search inside the article container for the headlineElement, get the text of it, trim the text and push it to the list of titles
           articles.titles.push($(element).find(headlineElement).text().trim());
-          //Search for the hrefElement and push it to the list of hrefs
+          // Search for the hrefElement and push it to the list of hrefs
           if(hrefElement === '') { //href is directly in articleContainer element
             articles.hrefs.push($(element).attr('href'));
           } else {                //href is in some child element
-            articles.hrefs.push($(element).attr(hrefElement));
+            articles.hrefs.push($(element).find(hrefElement).attr('href'));
           }
+
+          // Break out from cheerio's each loop
+          if(articles.hrefs.length > 4) {
+            breakFlag = false;
+          }
+
+          return breakFlag;
         })
 
     } catch(err) {
         console.error(err.message);
     }
 
-    // console.log(articles.titles);
-    // console.log(articles.hrefs);
-
     headlessBrowser.close();
 
     return articles;
 }
 
-// crawl('https://fcbayern.com/de/news', 'a.text-teaser.news-overview-teaser.type-grid', 'div.header5', 'href');
-
 const logging = () => {
   console.log('Import worked');
 }
+
+const crawlAll = () => {
+  const institutions = ['FC Bayern Muenchen', 'RB Leipzig'];
+
+  institutions.forEach(async (element, index) => {
+    const info = await getCrawlInfo(element);
+    const articles = await crawl(info.institution, info.newspage, info.article_container, info.headline_element, info.href_element);
+
+    console.log(articles);
+  })
+}
+
+crawlAll();
 
 module.exports = {
   crawl: crawl,
