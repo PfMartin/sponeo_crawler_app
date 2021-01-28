@@ -79,10 +79,10 @@ const crawl = async (site, newspage, articleContainer, headlineElement, hrefElem
 // Function that crawls all websites defined inside the function
 const crawlAll = () => {
   const site = [
-    // 'fcbayern.com',
-    // 'dierotenbullen.com',
-    // 'bvb.de',
-    // 'borussia.de',
+    'fcbayern.com',
+    'dierotenbullen.com',
+    'bvb.de',
+    'borussia.de',
     // 'bayer04.de', // AngularJS website doesn't work so far
     'schalke04.de',
   ];
