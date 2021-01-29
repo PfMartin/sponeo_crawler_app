@@ -5,6 +5,7 @@ const cors = require('cors');
 const dataBaseFunctions = require('./db.js');
 const addWebsite = dataBaseFunctions.addWebsite;
 const getCrawlInfo = dataBaseFunctions.getCrawlInfo;
+const getArticles = dataBaseFunctions.getArticles;
 
 const crawler = require('./crawler.js');
 const crawlAll = crawler.crawlAll;
@@ -25,12 +26,12 @@ app.get('/', async(req, res) => {
   }
 })
 
-//Add a new website to the database
+// Add a new website to the database
 app.post('/addWebsite', async(req, res) => {
   try {
-    //From client:
-    //body: JSON.stringify(this.state)
-    //destructuring of the json
+    // From client:
+    // body: JSON.stringify(this.state)
+    // destructuring of the json
     const { site, homepage, newspage, category, sports, geo, article_container, headline_element, href_element } = await req.body;
     await addWebsite(site, homepage, newspage, category, sports, geo, article_container, headline_element, href_element);
 
@@ -41,6 +42,7 @@ app.post('/addWebsite', async(req, res) => {
   }
 })
 
+// Crawl websites and add them to the database
 app.get('/crawl', async(req, res) => {
   try {
     crawlAll();
@@ -51,7 +53,16 @@ app.get('/crawl', async(req, res) => {
   res.redirect('/')
 })
 
-//Crawl websites and add them to the database
+// Route to get articles from the database and make it accessible for the frontend
+app.get('/getArticles', async(req, res) => {
+  try {
+    const allArticles = await getArticles();
+
+    res.json(allArticles.rows);
+  } catch(err) {
+    console.error(err.message);
+  }
+})
 
 
 const port = 5000;
