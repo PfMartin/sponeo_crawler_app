@@ -12,7 +12,7 @@ class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      page: 'showWebsites',
+      page: 'addWebsite',
     };
 
     this.pageHandler = this.pageHandler.bind(this);
