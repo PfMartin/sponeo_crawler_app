@@ -16,6 +16,7 @@ class Sponeo extends React.Component {
               style={{fontSize: '0.8rem'}}
               href="https://www.sponeo.de"
               rel="noreferrer noopener"
+              target="_blank"
               >www.sponeo.de
             </a>
           </div>
