@@ -39,44 +39,18 @@ class AddWebsite extends React.Component {
   }
 
   render() {
-    const backgroundStyle = {
-      display: 'flex',
-      justifyContent: 'center',
-      textAlign: 'center',
-    }
-    const formStyle = {
-      margin: '1rem',
-      width: '600px',
-      padding: '10px',
-      borderRadius: '2px',
-      border: '#aa0000 solid 0.08rem',
-      textAlign: 'center',
-      background: '#333',
-      color: '#f3f3f3'
-    }
-
-    const line = {
-      margin: '0 auto',
-      padding: '0.25rem',
-      borderBottom: '0.08rem solid #aa0000',
-      width: '5rem'
-    }
-
-    const p1 = {
-      padding: '1rem'
-    }
 
     return(
       <Fragment>
-      <div style={backgroundStyle}>
+      <div className="background">
         <form
           onSubmit={this.onSubmitForm}
-          style={formStyle}>
-          <h1 style={p1}>Add a new website to the database</h1>
+          className="board">
+          <h1 className="p1">Add a new website to the database</h1>
 
-          <div style={line}></div>
+          <div className="line"></div>
 
-          <h2 style={p1}>1. Website Details</h2>
+          <h2 className="p1">1. Website Details</h2>
           <label>
             <p>Institution</p>
             <input
@@ -132,9 +106,9 @@ class AddWebsite extends React.Component {
             />
           </label>
 
-          <div style={line}></div>
+          <div className="line"></div>
 
-          <h2 style={p1}>2. Structure Of The Website</h2>
+          <h2 className="p1">2. Structure Of The Website</h2>
           <label>
             <p>Container element of each article</p>
             <input
@@ -163,7 +137,7 @@ class AddWebsite extends React.Component {
             />
           </label>
 
-          <div style={line}></div>
+          <div className="line"></div>
 
           <button>Add to database</button>
         </form>

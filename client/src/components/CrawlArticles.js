@@ -40,30 +40,6 @@ class CrawlArticles extends React.Component {
   }
 
   render() {
-    const backgroundStyle = {
-      display: 'flex',
-      justifyContent: 'center',
-      textAlign: 'center',
-    }
-
-    const container = {
-      margin: '1rem',
-      width: '600px',
-      padding: '10px',
-      borderRadius: '2px',
-      border: '#aa0000 solid 0.08rem',
-      textAlign: 'center',
-      background: '#333',
-      color: '#f3f3f3'
-    }
-
-    const line = {
-      margin: '0 auto',
-      padding: '0.25rem',
-      borderBottom: '0.08rem solid #aa0000',
-      width: '5rem'
-    }
-
     const metaStyle = {
       display: 'grid',
       gridTemplateColumns: '1fr 2fr',
@@ -81,13 +57,12 @@ class CrawlArticles extends React.Component {
 
     return(
       <Fragment>
-        <div style={backgroundStyle}>
-          <div style={container}>
+        <div className="background">
+          <div className="board">
             <button onClick={this.onCrawlButton}>Crawl Articles</button>
             <button onClick={this.onDisplayButton}>Display Articles</button>
-
-            <div style={line}></div>
-
+            <div className="line"></div>
+            <h1 style={{margin: '1rem'}}>Articles</h1>
             {
               this.state.articles.map((element) => {
                 return(
@@ -102,6 +77,7 @@ class CrawlArticles extends React.Component {
                         onMouseLeave={leaveMouseArticle}
                         href={element.href}
                         target="_blank"
+                        rel="noreferrer noopener"
                       >{element.headline}</a>
                     </div>
                   </ul>

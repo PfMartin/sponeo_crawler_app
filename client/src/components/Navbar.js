@@ -65,7 +65,7 @@ class Navbar extends React.Component {
               Add Website
             </li>
             <li
-              style={liStyle}
+              style={this.props.page === 'showWebsites' ? {...liStyle, ...underline} : liStyle}
               onMouseOver={this.hoverOverLi}
               onMouseOut={this.hoverOutLi}
               onClick={this.props.pageHandler}
