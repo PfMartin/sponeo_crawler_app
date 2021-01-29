@@ -11,7 +11,7 @@ const storeArticle = dataBaseFunctions.storeArticle;
 //hrefElement: Contains the link to the full article
 const crawl = async (site, newspage, articleContainer, headlineElement, hrefElement) => {
     const headlessBrowser = await puppeteer.launch({
-      headless: false,
+      headless: true,
     });
     headlessBrowser.on('diconnected', () => {
       console.log('Browser closed');
@@ -72,7 +72,6 @@ const crawl = async (site, newspage, articleContainer, headlineElement, hrefElem
     }
 
     headlessBrowser.close();
-    console.log(articles);
     return articles;
 }
 
@@ -99,6 +98,7 @@ const crawlAll = () => {
       const href = articles.hrefs[index];
 
       storeArticle(tStamp, site, headline, href);
+      console.log(`${new Date(tStamp)}: ${site}, ${headline}, ${href}\n`);
     })
   })
 }

@@ -40,7 +40,6 @@ class AddWebsite extends React.Component {
 
   render() {
     const backgroundStyle = {
-      background: '#000',
       display: 'flex',
       justifyContent: 'center',
       textAlign: 'center',

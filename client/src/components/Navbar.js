@@ -44,7 +44,7 @@ class Navbar extends React.Component {
 
     return(
       <Fragment>
-        <div style={{background: '#000'}}>
+        <div>
           <ul style={navStyle}>
             <li
               style={this.props.page === 'sponeo' ? {...liStyle, ...underline} : liStyle}
@@ -69,18 +69,18 @@ class Navbar extends React.Component {
               onMouseOver={this.hoverOverLi}
               onMouseOut={this.hoverOutLi}
               onClick={this.props.pageHandler}
-              name='crawlArticles'
+              name='showWebsites'
             >
-              Crawl Articles
+              Show Websites
             </li>
             <li
-              style={liStyle}
-              onMouseOver={this.hoverOverLi}
-              onMouseOut={this.hoverOutLi}
-              onClick={this.props.pageHandler}
-              name='displayArticles'
+            style={this.props.page === 'crawlArticles' ? {...liStyle, ...underline} : liStyle}
+            onMouseOver={this.hoverOverLi}
+            onMouseOut={this.hoverOutLi}
+            onClick={this.props.pageHandler}
+            name='crawlArticles'
             >
-              Display Articles
+            Crawl Articles
             </li>
           </ul>
         </div>
