@@ -6,6 +6,7 @@ const dataBaseFunctions = require('./db.js');
 const addWebsite = dataBaseFunctions.addWebsite;
 const getCrawlInfo = dataBaseFunctions.getCrawlInfo;
 const getArticles = dataBaseFunctions.getArticles;
+const getWebsites = dataBaseFunctions.getWebsites;
 
 const crawler = require('./crawler.js');
 const crawlAll = crawler.crawlAll;
@@ -59,6 +60,17 @@ app.get('/getArticles', async(req, res) => {
     const allArticles = await getArticles();
 
     res.json(allArticles.rows);
+  } catch(err) {
+    console.error(err.message);
+  }
+})
+
+// Route to get websites from the database and make them accessible for the frontend
+app.get('/getWebsites', async(req, res) => {
+  try {
+    const websites = await getWebsites();
+
+    res.json(websites.rows);
   } catch(err) {
     console.error(err.message);
   }

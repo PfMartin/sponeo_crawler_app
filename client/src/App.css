@@ -55,3 +55,32 @@ a {
   text-decoration: none;
   color: #fff;
 }
+
+/* Classes */
+.p1 {
+  padding: 1rem;
+}
+
+.line {
+  margin: 0 auto;
+  padding: 0.25rem;
+  border-bottom: 0.08rem solid #aa0000;
+  width: 5rem
+}
+
+.background {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.board {
+  margin: 1rem;
+  width: 600px;
+  padding: 10px;
+  border-radius: 2px;
+  border: #aa0000 solid 0.08rem;
+  text-align: center;
+  background: #333;
+  color: #f3f3f3;
+}

@@ -24,9 +24,15 @@ const storeArticle = (tStamp, site, headline, href) => {
 }
 
 const getArticles = () => {
-  const allArticles = pool.query('SELECT * FROM articles;');
+  const allArticles = pool.query('SELECT * FROM articles ORDER BY site ASC;');
 
   return allArticles;
+}
+
+const getWebsites = () => {
+  const websites = pool.query('SELECT * FROM websites ORDER BY site ASC;');
+
+  return websites;
 }
 
 
@@ -35,4 +41,5 @@ module.exports = {
   getCrawlInfo: getCrawlInfo,
   storeArticle: storeArticle,
   getArticles: getArticles,
+  getWebsites: getWebsites,
 };

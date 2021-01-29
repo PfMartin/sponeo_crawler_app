@@ -3,6 +3,7 @@ import './App.css';
 
 //Components
 import Navbar from './components/Navbar.js';
+import Sponeo from './components/Sponeo.js';
 import AddWebsite from './components/AddWebsite.js';
 import CrawlArticles from './components/CrawlArticles.js';
 import ShowWebsites from './components/ShowWebsites.js';
@@ -11,7 +12,7 @@ class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      page: 'crawlArticles',
+      page: 'showWebsites',
     };
 
     this.pageHandler = this.pageHandler.bind(this);
@@ -32,7 +33,7 @@ class App extends React.Component{
           this.state.page === 'addWebsite' ? <AddWebsite/>
           : this.state.page === 'showWebsites' ? <ShowWebsites/>
           : this.state.page === 'crawlArticles' ? <CrawlArticles/>
-          : <h1>Sponeo</h1>
+          : <Sponeo/>
         }
       </Fragment>
     )
