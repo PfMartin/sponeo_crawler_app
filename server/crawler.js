@@ -10,8 +10,9 @@ const storeArticle = dataBaseFunctions.storeArticle;
 //headlineElement: Contains the headline text
 //hrefElement: Contains the link to the full article
 const crawl = async (site, newspage, articleContainer, headlineElement, hrefElement) => {
+    console.log(`Crawling: ${site}`)
     const headlessBrowser = await puppeteer.launch({
-      headless: true,
+      headless: false,
     });
     headlessBrowser.on('diconnected', () => {
       console.log('Browser closed');
@@ -75,9 +76,23 @@ const crawl = async (site, newspage, articleContainer, headlineElement, hrefElem
     return articles;
 }
 
+const saveArticles = (articles) => {
+  const tStamp = Math.round(new Date().getTime() / 1000);
+
+  articles.site.forEach((element, index) => {
+    const site = articles.site[index];
+    const headline = articles.headlines[index];
+    const href = articles.hrefs[index];
+
+    storeArticle(tStamp, site, headline, href);
+    console.log(`${new Date(tStamp)}: ${site}, ${headline}, ${href}\n`);
+  })
+
+}
+
 // Function that crawls all websites defined inside the function
-const crawlAll = () => {
-  const site = [
+const crawlAll = async () => {
+  const sites = [
     'fcbayern.com',
     'dierotenbullen.com',
     'bvb.de',
@@ -86,24 +101,16 @@ const crawlAll = () => {
     'schalke04.de',
   ];
 
-  site.forEach(async (element, index) => {
-    const info = await getCrawlInfo(element);
+  // for of for concurrent crawling
+  // forEach for asynchronous crawling
+  for (site of sites) {
+    const info = await getCrawlInfo(site);
     const articles = await crawl(info.site, info.newspage, info.article_container, info.headline_element, info.href_element);
-
-    const tStamp = Math.round(new Date().getTime() / 1000);
-
-    articles.site.forEach((element, index) => {
-      const site = articles.site[index];
-      const headline = articles.headlines[index];
-      const href = articles.hrefs[index];
-
-      storeArticle(tStamp, site, headline, href);
-      console.log(`${new Date(tStamp)}: ${site}, ${headline}, ${href}\n`);
-    })
-  })
+    await saveArticles(articles);
+  }
 }
 
-// crawlAll();
+crawlAll();
 
 module.exports = {
   crawlAll: crawlAll
