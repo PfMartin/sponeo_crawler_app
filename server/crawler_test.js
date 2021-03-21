@@ -76,44 +76,27 @@ const crawl = async (site, newspage, articleContainer, headlineElement, hrefElem
     return articles;
 }
 
-const saveArticles = (articles) => {
-  const tStamp = Math.round(new Date().getTime() / 1000);
+
+// Function that crawls all websites defined inside the function
+const crawlAll = async () => {
+  const info = {
+    site: 'fcaugsburg.de',
+    newspage: 'https://www.fcaugsburg.de/news/business',
+    article_container: 'article.b-teaser',
+    headline_element: "h3",
+    href_element: 'a',
+  }
+
+  // console.log(info.site, info.newspage, info.article_container, info.headline_element, info.href_element)
+  const articles = await crawl(info.site, info.newspage, info.article_container, info.headline_element, info.href_element);
 
   articles.site.forEach((element, index) => {
     const site = articles.site[index];
     const headline = articles.headlines[index];
     const href = articles.hrefs[index];
 
-    storeArticle(tStamp, site, headline, href);
-    console.log(`${new Date(tStamp)}: ${site}, ${headline}, ${href}\n`);
+    console.log(`${site}, ${headline}, ${href}\n`);
   })
-
 }
 
-// Function that crawls all websites defined inside the function
-const crawlAll = async () => {
-  const sites = [
-    // 'fcbayern.com',
-    // 'dierotenbullen.com',
-    // 'bvb.de',
-    // 'borussia.de',
-    // 'bayer04.de',
-    // 'schalke04.de',
-    // 'tsg-hoffenheim.de',
-    // 'scfreiburg.com',
-    // 'vfl-wolfsburg.de',
-    'fcaugsburg.de',
-  ];
-
-  // for of for concurrent crawling
-  // forEach for asynchronous crawling
-  for (site of sites) {
-    const info = await getCrawlInfo(site);
-    const articles = await crawl(info.site, info.newspage, info.article_container, info.headline_element, info.href_element);
-    await saveArticles(articles);
-  }
-}
-
-module.exports = {
-  crawlAll: crawlAll
-}
+crawlAll();
