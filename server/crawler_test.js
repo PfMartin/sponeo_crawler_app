@@ -35,6 +35,8 @@ const crawl = async (site, newspage, articleContainer, headlineElement, hrefElem
         let content = await page.content();
         $ = await cheerio.load(content);
 
+        console.log(content);
+
         let breakFlag = true;
 
         $(articleContainer).each((index, element) => {
@@ -50,7 +52,7 @@ const crawl = async (site, newspage, articleContainer, headlineElement, hrefElem
             href = $(element).find(hrefElement).attr('href');
           }
 
-          // Logic for unified hrefs
+                    // Logic for unified hrefs
           // Check if the href doesn't include the domain name -> If true add https://www.domainname
           // Check if href doesn't include www. -> If true add https://www. and cut the https:// from the original href
           if(!href.includes(articles.site[index])) {
@@ -58,6 +60,7 @@ const crawl = async (site, newspage, articleContainer, headlineElement, hrefElem
           } else if(!href.includes('www.')) {
             href = `https://www.${href.slice(8)}`;
           }
+
 
           articles.hrefs.push(href);
 
@@ -80,10 +83,10 @@ const crawl = async (site, newspage, articleContainer, headlineElement, hrefElem
 // Function that crawls all websites defined inside the function
 const crawlAll = async () => {
   const info = {
-    site: 'fcaugsburg.de',
-    newspage: 'https://www.fcaugsburg.de/news/business',
-    article_container: 'article.b-teaser',
-    headline_element: "h3",
+    site: 'mainz05.de',
+    newspage: 'https://www.mainz05.de/aktuell/news/',
+    article_container: 'div.col-sm-6.col-md-4 div.content',
+    headline_element: 'div.headline h2',
     href_element: 'a',
   }
 

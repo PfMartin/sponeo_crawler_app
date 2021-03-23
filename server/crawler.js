@@ -103,6 +103,7 @@ const crawlAll = async () => {
     // 'scfreiburg.com',
     // 'vfl-wolfsburg.de',
     'fcaugsburg.de',
+    // 'profis.eintracht.de'
   ];
 
   // for of for concurrent crawling
