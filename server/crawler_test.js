@@ -35,7 +35,7 @@ const crawl = async (site, newspage, articleContainer, headlineElement, hrefElem
         let content = await page.content();
         $ = await cheerio.load(content);
 
-        console.log(content);
+        // console.log(content);
 
         let breakFlag = true;
 
@@ -83,11 +83,11 @@ const crawl = async (site, newspage, articleContainer, headlineElement, hrefElem
 // Function that crawls all websites defined inside the function
 const crawlAll = async () => {
   const info = {
-    site: 'mainz05.de',
-    newspage: 'https://www.mainz05.de/aktuell/news/',
-    article_container: 'div.col-sm-6.col-md-4 div.content',
-    headline_element: 'div.headline h2',
-    href_element: 'a',
+    site: 'arminia.de',
+    newspage: 'https://www.arminia.de/neues/schlagzeilen',
+    article_container: 'div.article',
+    headline_element: 'h5 span',
+    href_element: 'h5 a',
   }
 
   // console.log(info.site, info.newspage, info.article_container, info.headline_element, info.href_element)

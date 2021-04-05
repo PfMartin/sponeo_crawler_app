@@ -101,9 +101,17 @@ const crawlAll = async () => {
     // 'schalke04.de',
     // 'tsg-hoffenheim.de',
     // 'scfreiburg.com',
+    // 'bayer04.de',
     // 'vfl-wolfsburg.de',
-    'fcaugsburg.de',
-    // 'profis.eintracht.de'
+    // 'fcaugsburg.de',
+    // 'profis.eintracht.de',
+    // 'fc-union-berlin.de',
+    // 'herthabsc.com',
+    // 'fc.de/',
+    // 'werder.de',
+    // 'f95.de/',
+    // scp07.de,
+    // 
   ];
 
   // for of for concurrent crawling
