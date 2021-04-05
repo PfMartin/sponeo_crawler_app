@@ -119,15 +119,31 @@ ALTER TABLE ONLY public.websites ALTER COLUMN id SET DEFAULT nextval('public.web
 --
 
 COPY public.articles (site, headline, href, t_stamp, id) FROM stdin;
-fcaugsburg.de	Bernd Siegmund GmbH stattet FCA mit FFP2-Masken aus	https://www.fcaugsburg.de/article/bernd-siegmund-gmbh-stattet-fca-mit-ffp2-masken-aus-12819	2021-03-21 17:07:03	384
-fcaugsburg.de	Die baramundi software AG verlängert ihr Engagement	https://www.fcaugsburg.de/article/die-baramundi-software-ag-verlangert-ihr-engagement-12794	2021-03-21 17:07:03	385
-fcaugsburg.de	Stadtwerke Augsburg bleiben Exklusivpartner	https://www.fcaugsburg.de/article/stadtwerke-augsburg-bleiben-exklusivpartner-12561	2021-03-21 17:07:03	386
-vfl-wolfsburg.de		https://www.vfl-wolfsburg.denewsdetails/news-detail/detail/news/zusammenarbeit-mit-hth/	2021-03-21 16:58:56	380
-fcaugsburg.de	FCA verlängert mit Nike und 11teamsports	https://www.fcaugsburg.de/article/fca-verlaengert-mit-nike-und-11teamsports-12218	2021-03-21 17:07:03	387
-vfl-wolfsburg.de	Namhafter Partner	https://www.vfl-wolfsburg.denewsdetails/news-detail/detail/news/namhafter-partner/	2021-03-21 16:58:56	381
-fcaugsburg.de	Die Schönegger Käse-Alm bleibt Supplier	https://www.fcaugsburg.de/article/die-schoenegger-kaese-alm-bleibt-supplier-12444	2021-03-21 17:07:03	388
-vfl-wolfsburg.de	Aramark übernimmt Public-Catering	https://www.vfl-wolfsburg.denewsdetails/news-detail/detail/news/aramark-uebernimmt-public-catering/	2021-03-21 16:58:56	382
-vfl-wolfsburg.de	Neuer Partner aus China	https://www.vfl-wolfsburg.denewsdetails/news-detail/detail/news/neuer-partner-aus-china/	2021-03-21 16:58:56	383
+bayer04.de	like2drive wird Mobilitätspartner von Bayer 04	https://www.bayer04.de/de-de/news/business/like2drive-wird-mobilitaetspartner-von-bayer-04	2021-04-05 16:27:21	454
+fc-union-berlin.de	Union empfängt die Alte Dame	https://www.fc-union-berlin.de/de/union-live/news/profis/Union-empfaengt-die-Alte-Dame-20327I/	2021-04-05 16:25:45	441
+fc.de/	U21 bezwingt Bergisch Gladbach	https://www.fc.de/fc-info/news/detailseite/details/u21-bezwingt-bergisch-gladbach/	2021-04-05 16:25:52	447
+f95.de/	2:1! Fortuna fährt wichtigen Dreier in Darmstadt ein	https://www.f95.de/aktuell/news/profis/detail/27129-2-1-fortuna-faehrt-wichtigen-dreier-in-darmstadt-ein/68e5df6328dbb81bf0d53979751ffd16/	2021-04-05 16:25:56	451
+bayer04.de	Bayer 04-Webseite gewinnt VEGA Digital Award 2019	https://www.bayer04.de/de-de/news/business/bayer-04-webseite-gewinnt-vega-digital-award-2019	2021-04-05 16:27:21	455
+werder.de	Kofler nachnominiert	https://www.werder.de/aktuell/news/frauen/20202021/kofler-nationalmannschaft-05042021/	2021-04-05 16:27:24	461
+fc-union-berlin.de	Lernangebot des NLZ erweitert	https://www.fc-union-berlin.de/de/union-live/news/amateure/Lernangebot-des-NLZ-erweitert-16210R/	2021-04-05 16:25:45	442
+fc.de/	Heldt: „Konzentration auf die Arbeit“	https://www.fc.de/fc-info/news/detailseite/details/heldt-konzentration-auf-die-arbeit/	2021-04-05 16:25:52	445
+f95.de/	F95 will Auswärtssieg „am Bölle“	https://www.f95.de/aktuell/news/profis/detail/27125-f95-will-auswaertssieg-am-boelle/b0a5b5bc7fe3848bb0db2a2189ac48a6/	2021-04-05 16:25:56	453
+bayer04.de	Bayer 04 und SalzburgerLand verlängern	https://www.bayer04.de/de-de/news/business/bayer-04-und-salzburgerland-verlaengern	2021-04-05 16:27:21	456
+werder.de	"Wirklich frustrierender" Moment für Augustinsson	https://www.werder.de/aktuell/news/profis/20202021/augustinsson-zum-eigentor-05042021/	2021-04-05 16:27:24	459
+fc-union-berlin.de	Das Programmheft zum Hauptstadtduell	https://www.fc-union-berlin.de/de/union-live/news/verein/Das-Programmheft-zum-Hauptstadtduell-2513o/	2021-04-05 16:25:45	443
+fc.de/	Ostereiersuche im FC-Fanshop	https://www.fc.de/fc-info/news/detailseite/details/ostereiersuche-im-fc-fanshop-1/	2021-04-05 16:25:52	446
+f95.de/	„Wir haben heute den Sieg erzwungen"	https://www.f95.de/aktuell/news/profis/detail/27128-wir-haben-heute-den-sieg-erzwungen/d71f1a594b70f07f1b2856cd7d26e418/	2021-04-05 16:25:56	452
+bayer04.de	Podcast-Gast und Speaker: Rolfes auf dem SPOBIS 2020	https://www.bayer04.de/de-de/news/bayer04/podcast-gast-und-speaker-rolfes-auf-dem-spobis-2020	2021-04-05 16:27:21	457
+werder.de	Viel investiert, unglücklich verloren	https://www.werder.de/aktuell/news/profis/20202021/stimmen-nach-stuttgart-04042021/	2021-04-05 16:27:24	462
+fc.de/	FC-Frauen gewinnen sechstes Spiel	https://www.fc.de/fc-info/news/detailseite/details/fc-frauen-gewinnen-sechstes-spiel/	2021-04-05 16:25:52	444
+bayer04.de	Sport von Sky für nen 10er	https://www.bayer04.de/de-de/news/business/sport-von-sky-fuer-nen-10er	2021-04-05 16:27:21	458
+werder.de	"Wir hätten mehr verdient gehabt"	https://www.werder.de/aktuell/news/profis/20202021/gross-im-werder-strom-talk-nach-dem-stuttgart-spiel-05042021/	2021-04-05 16:27:24	460
+fc-union-berlin.de	Union und Hertha trennen sich mit 1:1-Unentschieden	https://www.fc-union-berlin.de/de/union-live/news/profis/Union-und-Hertha-trennen-sich-mit-1-1-Unentschieden-20328z/	2021-04-05 16:25:45	439
+f95.de/	Bounce-Back am Bölle	https://www.f95.de/aktuell/news/profis/detail/27134-bounce-back-am-boelle/d07eafd05e3adfae2a19e749c39e3c77/	2021-04-05 16:25:56	449
+werder.de	Später Gegentreffer entreißt verdienten Punkt	https://www.werder.de/aktuell/news/profis/20202021/spielberichte/spielbericht-stuttgart-04042021/	2021-04-05 16:27:24	463
+fc-union-berlin.de	Einkaufen nur mit Negativtest	https://www.fc-union-berlin.de/de/union-live/news/verein/Einkaufen-nur-mit-Negativtest-2514t/	2021-04-05 16:25:45	440
+fc.de/	Czichos: „Dreckige Niederlage“	https://www.fc.de/fc-info/news/detailseite/details/czichos-dreckige-niederlage/	2021-04-05 16:25:52	448
+f95.de/	Achterbahnfahren mit Luka Krajnc	https://www.f95.de/aktuell/news/profis/detail/27132-achterbahnfahren-mit-luka-krajnc/a8c6d4f52a4be4f7922f36a815fe34e2/	2021-04-05 16:25:56	450
 \.
 
 
@@ -147,6 +163,21 @@ COPY public.websites (id, site, homepage, newspage, category, sports, geo, artic
 10	bayer04.de	https://www.bayer04.de/de-de/	https://www.bayer04.de/de-de/page/business	Club	Soccer	national	div.news-item.animate	\N	a	span.news-title
 11	vfl-wolfsburg.de	https://www.vfl-wolfsburg.de/	https://www.vfl-wolfsburg.de/der-vfl/business/	Club	Soccer	national	article.news-item	\N	a	h3
 12	fcaugsburg.de	https://www.fcaugsburg.de/	https://www.fcaugsburg.de/news/business	Club	Soccer	national	article.b-teaser	\N	a	h3
+13	profis.eintracht.de	https://profis.eintracht.de/	https://profis.eintracht.de/news/	Club	Soccer	National	a.ef-article-card	\N		h3 span
+14	fc-union-berlin.de	https://www.fc-union-berlin.de/	https://www.fc-union-berlin.de/de/union-live/news/	Club	Soccer	National	div.site-list-item.site-card	\N	a.site-button	h2
+15	herthabsc.com	https://www.herthabsc.com/de/	https://www.herthabsc.com/de/nachrichten	Club	Soccer	National	div.teaser-container	\N	a.link-internal	h3.title
+16	fc.de/	https://fc.de/	https://fc.de/fc-info/news/uebersicht/	Club	Soccer	National	div.mod-teaser-content	\N	h2 a.more	h2 a.more
+17	werder.de	https://www.werder.de/	https://www.werder.de/de/aktuell/news/alle-news/	Club	Soccer	National	div.c-news-strip	\N	a	h3
+18	f95.de/	https://www.f95.de/	https://www.f95.de/aktuell/news/	Club	Soccer	National	div.cnt	\N	h4 a	h4
+19	scp07.de	https://www.scp07.de/	https://www.scp07.de/Newsarchiv/	Club	Soccer	National	article.dp-article	\N	a	h2
+20	hsv.de	https://www.hsv.de/	https://www.hsv.de/uebersicht	Club	Soccer	National	div.item	\N	div.hidden-md a	div.hsvbox-header
+21	vfb.de	https://www.vfb.de/	https://www.vfb.de/de/1893/aktuell/neues/	Club	Soccer	National	article.teaserArchiveArticle	\N	a	div.information a div.title
+22	sgf1903.de	https://sgf1903.de/	https://sgf1903.de/de/aktuell/nachrichten/alle-nachrichten	Club	Soccer	National	div.c-news-strip	\N	a	a h3
+23	fc-heidenheim.de	https://www.fc-heidenheim.de/	https://www.fc-heidenheim.de/news.html	Club	Soccer	National	div.newselement	\N	div.wrapper h3 a	div.wrapper h3
+24	fc-erzgebirge.de/	https://www.fc-erzgebirge.de	https://www.fc-erzgebirge.de/sponsoren/aktuelles/	Club	Soccer	National	span.newsText	\N	h3 a	h3 a
+25	ssv-jahn.de/	https://www.ssv-jahn.de/	https://www.ssv-jahn.de/alle-neuigkeiten/	Club	Soccer	National	div.news-latest-item	\N	div.news-latest-text div.news-latest-subheader a	div.news-latest-text h2
+26	vfl.de	https://www.vfl.de/	https://www.vfl.de/vfl-aktuell/	Club	Soccer	National	article	\N	h3 a	h3 a
+27	holstein-kiel.de	https://www.holstein-kiel.de/	https://www.holstein-kiel.de/	Club	Soccer	National	article.category-news-herren	\N	h3.entry-title a	h3.entry-title a
 \.
 
 
@@ -154,14 +185,14 @@ COPY public.websites (id, site, homepage, newspage, category, sports, geo, artic
 -- Name: articles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.articles_id_seq', 388, true);
+SELECT pg_catalog.setval('public.articles_id_seq', 463, true);
 
 
 --
 -- Name: websites_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.websites_id_seq', 12, true);
+SELECT pg_catalog.setval('public.websites_id_seq', 27, true);
 
 
 --
