@@ -178,6 +178,11 @@ COPY public.websites (id, site, homepage, newspage, category, sports, geo, artic
 25	ssv-jahn.de/	https://www.ssv-jahn.de/	https://www.ssv-jahn.de/alle-neuigkeiten/	Club	Soccer	National	div.news-latest-item	\N	div.news-latest-text div.news-latest-subheader a	div.news-latest-text h2
 26	vfl.de	https://www.vfl.de/	https://www.vfl.de/vfl-aktuell/	Club	Soccer	National	article	\N	h3 a	h3 a
 27	holstein-kiel.de	https://www.holstein-kiel.de/	https://www.holstein-kiel.de/	Club	Soccer	National	article.category-news-herren	\N	h3.entry-title a	h3.entry-title a
+28	svs1916.de	https://www.svs1916.de/	https://www.svs1916.de/aktuell/nachrichten/news.html	Club	Soccer	National	ul.slides li	\N	span.topnews a	span.topnews a
+29	sv98.de/	https://www.sv98.de/home/	https://www.sv98.de/home/lilien/aktuelles/top-news/	Club	Soccer	National	div.article	\N	div.teaser-text h3 a	div.teaser-text h3 a span
+30	fcstpauli.com	https://www.fcstpauli.com/	https://www.fcstpauli.com/millerntor-live/news-archiv/	Club	Soccer	National	div.item.item--search-result	\N	div.col-lg-9 a	div.col-lg-9 a h3 span.textFitted
+31	fcn.de/	https://www.fcn.de/	https://www.fcn.de/home/alle-news/	Club	Soccer	National	div.news-item	\N	a	a h2
+32	hannover96.de/	https://www.hannover96.de/	https://www.hannover96.de/aktuelles/news.html	Club	Soccer	National	article.teaser__article	\N	a.teaser__link	a.teaser__link h3
 \.
 
 
@@ -192,7 +197,7 @@ SELECT pg_catalog.setval('public.articles_id_seq', 463, true);
 -- Name: websites_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.websites_id_seq', 27, true);
+SELECT pg_catalog.setval('public.websites_id_seq', 32, true);
 
 
 --
