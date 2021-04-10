@@ -120,24 +120,29 @@ ALTER TABLE ONLY public.websites ALTER COLUMN id SET DEFAULT nextval('public.web
 
 COPY public.articles (site, headline, href, t_stamp, id) FROM stdin;
 bayer04.de	like2drive wird Mobilitätspartner von Bayer 04	https://www.bayer04.de/de-de/news/business/like2drive-wird-mobilitaetspartner-von-bayer-04	2021-04-05 16:27:21	454
+profis.eintracht.de	Wilder Ritt mit Happy End	https://www.profis.eintracht.de/news/wilder-ritt-mit-happy-end-132036/	2021-04-10 18:24:54	464
 fc-union-berlin.de	Union empfängt die Alte Dame	https://www.fc-union-berlin.de/de/union-live/news/profis/Union-empfaengt-die-Alte-Dame-20327I/	2021-04-05 16:25:45	441
 fc.de/	U21 bezwingt Bergisch Gladbach	https://www.fc.de/fc-info/news/detailseite/details/u21-bezwingt-bergisch-gladbach/	2021-04-05 16:25:52	447
 f95.de/	2:1! Fortuna fährt wichtigen Dreier in Darmstadt ein	https://www.f95.de/aktuell/news/profis/detail/27129-2-1-fortuna-faehrt-wichtigen-dreier-in-darmstadt-ein/68e5df6328dbb81bf0d53979751ffd16/	2021-04-05 16:25:56	451
 bayer04.de	Bayer 04-Webseite gewinnt VEGA Digital Award 2019	https://www.bayer04.de/de-de/news/business/bayer-04-webseite-gewinnt-vega-digital-award-2019	2021-04-05 16:27:21	455
 werder.de	Kofler nachnominiert	https://www.werder.de/aktuell/news/frauen/20202021/kofler-nationalmannschaft-05042021/	2021-04-05 16:27:24	461
+profis.eintracht.de	„Jetzt wissen wir, wohin die Reise geht“	https://www.profis.eintracht.de/news/jetzt-wissen-wir-wohin-die-reise-geht-131994/	2021-04-10 18:24:54	465
 fc-union-berlin.de	Lernangebot des NLZ erweitert	https://www.fc-union-berlin.de/de/union-live/news/amateure/Lernangebot-des-NLZ-erweitert-16210R/	2021-04-05 16:25:45	442
 fc.de/	Heldt: „Konzentration auf die Arbeit“	https://www.fc.de/fc-info/news/detailseite/details/heldt-konzentration-auf-die-arbeit/	2021-04-05 16:25:52	445
 f95.de/	F95 will Auswärtssieg „am Bölle“	https://www.f95.de/aktuell/news/profis/detail/27125-f95-will-auswaertssieg-am-boelle/b0a5b5bc7fe3848bb0db2a2189ac48a6/	2021-04-05 16:25:56	453
 bayer04.de	Bayer 04 und SalzburgerLand verlängern	https://www.bayer04.de/de-de/news/business/bayer-04-und-salzburgerland-verlaengern	2021-04-05 16:27:21	456
 werder.de	"Wirklich frustrierender" Moment für Augustinsson	https://www.werder.de/aktuell/news/profis/20202021/augustinsson-zum-eigentor-05042021/	2021-04-05 16:27:24	459
+profis.eintracht.de	Im sechsten Gang	https://www.profis.eintracht.de/news/im-sechsten-gang-131986/	2021-04-10 18:24:54	466
 fc-union-berlin.de	Das Programmheft zum Hauptstadtduell	https://www.fc-union-berlin.de/de/union-live/news/verein/Das-Programmheft-zum-Hauptstadtduell-2513o/	2021-04-05 16:25:45	443
 fc.de/	Ostereiersuche im FC-Fanshop	https://www.fc.de/fc-info/news/detailseite/details/ostereiersuche-im-fc-fanshop-1/	2021-04-05 16:25:52	446
 f95.de/	„Wir haben heute den Sieg erzwungen"	https://www.f95.de/aktuell/news/profis/detail/27128-wir-haben-heute-den-sieg-erzwungen/d71f1a594b70f07f1b2856cd7d26e418/	2021-04-05 16:25:56	452
 bayer04.de	Podcast-Gast und Speaker: Rolfes auf dem SPOBIS 2020	https://www.bayer04.de/de-de/news/bayer04/podcast-gast-und-speaker-rolfes-auf-dem-spobis-2020	2021-04-05 16:27:21	457
 werder.de	Viel investiert, unglücklich verloren	https://www.werder.de/aktuell/news/profis/20202021/stimmen-nach-stuttgart-04042021/	2021-04-05 16:27:24	462
+profis.eintracht.de	Harte Nuss	https://www.profis.eintracht.de/news/harte-nuss-131998/	2021-04-10 18:24:54	467
 fc.de/	FC-Frauen gewinnen sechstes Spiel	https://www.fc.de/fc-info/news/detailseite/details/fc-frauen-gewinnen-sechstes-spiel/	2021-04-05 16:25:52	444
 bayer04.de	Sport von Sky für nen 10er	https://www.bayer04.de/de-de/news/business/sport-von-sky-fuer-nen-10er	2021-04-05 16:27:21	458
 werder.de	"Wir hätten mehr verdient gehabt"	https://www.werder.de/aktuell/news/profis/20202021/gross-im-werder-strom-talk-nach-dem-stuttgart-spiel-05042021/	2021-04-05 16:27:24	460
+profis.eintracht.de	„Wir sind auf einer Euphoriewelle gesurft“	https://www.profis.eintracht.de/news/wir-sind-auf-einer-euphoriewelle-gesurft-131995/	2021-04-10 18:24:54	468
 fc-union-berlin.de	Union und Hertha trennen sich mit 1:1-Unentschieden	https://www.fc-union-berlin.de/de/union-live/news/profis/Union-und-Hertha-trennen-sich-mit-1-1-Unentschieden-20328z/	2021-04-05 16:25:45	439
 f95.de/	Bounce-Back am Bölle	https://www.f95.de/aktuell/news/profis/detail/27134-bounce-back-am-boelle/d07eafd05e3adfae2a19e749c39e3c77/	2021-04-05 16:25:56	449
 werder.de	Später Gegentreffer entreißt verdienten Punkt	https://www.werder.de/aktuell/news/profis/20202021/spielberichte/spielbericht-stuttgart-04042021/	2021-04-05 16:27:24	463
@@ -152,10 +157,15 @@ f95.de/	Achterbahnfahren mit Luka Krajnc	https://www.f95.de/aktuell/news/profis/
 --
 
 COPY public.websites (id, site, homepage, newspage, category, sports, geo, article_container, headline_container, href_element, headline_element) FROM stdin;
+33	svww.de	https://svww.de/	https://svww.de/news	Club	Soccer	National	div.card.news	\N	div.content div.text h3 a	div.content div.text h3 a
+34	vfl-bochum.de	https://www.vfl-bochum.de/	https://www.vfl-bochum.de/news/uebersicht/	Club	Soccer	National	div.teaser.teaser--news-item	\N	div.teaser__content div.teaser__text h4 a	div.teaser__content div.teaser__text h4 a
 1	fcbayern.com	https://fcbayern.com/de	https://fcbayern.com/de/news	Club	Soccer	national	a.text-teaser.news-overview-teaser.type-grid	\N		div.header5
 2	dierotenbullen.com	https://www.dierotenbullen.com/	https://www.dierotenbullen.com/de/aktuelles/neuigkeiten.html	Club	Soccer	national	div.m-card		a.m-card__link	h2.m-card__headline
 3	bvb.de	https://www.bvb.de/	https://www.bvb.de/News/Uebersicht	Club	Soccer	National	article.news-teaser	\N	a	h1
 4	borussia.de	https://www.borussia.de/de/startseite.html	https://www.borussia.de/de/aktuelles/news	Club	Soccer	National	div.bmg-m8-teaser__text-content	\N	a	h3
+35	ksc.de	https://www.ksc.de/	https://www.ksc.de/club/allgemein/news/	Club	Soccer	National	a.newsItem	\N		div.info p
+36	dynamo-dresden.de/	https://www.dynamo-dresden.de/	https://www.dynamo-dresden.de/aktuelles	Club	Soccer	National	ul.content li	\N	a	a article.news-article header h3.news-title
+37	fcingolstadt.de	https://www.fcingolstadt.de/	https://www.fcingolstadt.de/home/newsarchiv/	Club	Soccer	National	div.articlebody	\N	h3 a	h3 a
 5	bayer04.de	https://www.bayer04.de/de-de/	https://www.bayer04.de/de-de/page/business	Club	Soccer	National	div.related-news-item	\N	a.news-content.item-container	span.news-title
 6	schalke04.de	https://schalke04.de/	https://schalke04.de/aktuelles/newscenter/	Club	Soccer	National	a.teaser.teaser-article	\N		h3
 7	tsg-hoffenheim.de	https://www.tsg-hoffenheim.de/	https://www.tsg-hoffenheim.de/aktuelles/news/	Club	Soccer	national	article.col-lg-4.col-md-6.col-sm-6	\N	a	h2
@@ -183,6 +193,11 @@ COPY public.websites (id, site, homepage, newspage, category, sports, geo, artic
 30	fcstpauli.com	https://www.fcstpauli.com/	https://www.fcstpauli.com/millerntor-live/news-archiv/	Club	Soccer	National	div.item.item--search-result	\N	div.col-lg-9 a	div.col-lg-9 a h3 span.textFitted
 31	fcn.de/	https://www.fcn.de/	https://www.fcn.de/home/alle-news/	Club	Soccer	National	div.news-item	\N	a	a h2
 32	hannover96.de/	https://www.hannover96.de/	https://www.hannover96.de/aktuelles/news.html	Club	Soccer	National	article.teaser__article	\N	a.teaser__link	a.teaser__link h3
+38	tsv1860.de	https://www.tsv1860.de/	https://www.tsv1860.de/de/Aktuelles_News.htm	Club	Soccer	National	div.teasercont	\N	a	div.teasermaincnt div.teasertxt
+39	eintracht.com	https://www.eintracht.com/	https://www.eintracht.com/news/aktuelles	Club	Soccer	National	div.news	\N	a.news-link	div.news-media div.news-media-caption h3
+72	fck.de	https://fck.de/	https://fck.de/de/category/news/	Club	Soccer	National	a.post	\N		div.postContent h2
+73	mainz05.de	https://www.mainz05.de/	https://www.mainz05.de/aktuell/news/	Club	Soccer	National	div.col-sm-6.col-md-4	\N	a	a div.news-container div.content div.headline h2
+74	arminia.de	https://www.arminia.de/	https://www.arminia.de/neues/schlagzeilen	Club	Soccer	National	div.article	\N	div.header h5 a	div.header h5 a span
 \.
 
 
@@ -190,14 +205,14 @@ COPY public.websites (id, site, homepage, newspage, category, sports, geo, artic
 -- Name: articles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.articles_id_seq', 463, true);
+SELECT pg_catalog.setval('public.articles_id_seq', 468, true);
 
 
 --
 -- Name: websites_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.websites_id_seq', 32, true);
+SELECT pg_catalog.setval('public.websites_id_seq', 74, true);
 
 
 --

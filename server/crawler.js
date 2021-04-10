@@ -124,6 +124,15 @@ const crawlAll = async () => {
     // 'fcstpauli.com',
     // 'fcn.de/',
     // 'hannover96.de/',
+    // 'svww.de',
+    // 'vfl-bochum.de',
+    // 'ksc.de',
+    // 'dynamo-dresden.de/',
+    // 'fcingolstadt.de',
+    // 'tsv1860.de',
+    // 'eintracht.com',
+    // 'fck.de',
+    // 'mainz05.de',
   ];
 
   // for of for concurrent crawling

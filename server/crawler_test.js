@@ -83,11 +83,11 @@ const crawl = async (site, newspage, articleContainer, headlineElement, hrefElem
 // Function that crawls all websites defined inside the function
 const crawlAll = async () => {
   const info = {
-    site: 'hannover96.de/',
-    newspage: 'https://www.hannover96.de/aktuelles/news.html',
-    article_container: 'article.teaser__article',
-    headline_element: 'a.teaser__link h3',
-    href_element: 'a.teaser__link',
+    site: 'arminia.de',
+    newspage: 'https://www.arminia.de/neues/schlagzeilen',
+    article_container: 'div.article',
+    headline_element: 'div.header h5 a span',
+    href_element: 'div.header h5 a',
   }
 
   // console.log(info.site, info.newspage, info.article_container, info.headline_element, info.href_element)
