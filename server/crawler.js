@@ -5,6 +5,8 @@ const dataBaseFunctions = require('./db.js');
 const getCrawlInfo = dataBaseFunctions.getCrawlInfo;
 const storeArticle = dataBaseFunctions.storeArticle;
 
+const databaseCheck = require('./database_check.js');
+
 //newspage: address of the website
 //articleContainer: Contains both the headline and the link
 //headlineElement: Contains the headline text
