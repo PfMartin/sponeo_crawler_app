@@ -7,13 +7,19 @@ const logArticles = async () => {
 
   let sites = [];
 
+  // Pushes the site to the array, if it's not already in the array
   articles.rows.forEach((article) => {
     if (!sites.includes(article.site)) {
       sites.push(article.site);
     }
   })
 
-  console.log(sites);
+  return sites;
 }
 
-logArticles();
+const printWebsites = async () => {
+  const sitesWithArticles = await logArticles();
+  console.log(sitesWithArticles);
+}
+
+printWebsites();
