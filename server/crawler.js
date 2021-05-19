@@ -96,8 +96,8 @@ const saveArticles = (articles) => {
 // Function that crawls all websites defined inside the function
 const crawlAll = async () => {
   let sites = [
-    'fcbayern.com', // worked all the time, 2021-05-19 didn't work
-    'dierotenbullen.com', // 2021-05-19 didn't work - 2021-05-19 worked
+    'fcbayern.com',
+    'dierotenbullen.com',
     'bvb.de',
     'borussia.de',
     'bayer04.de',
@@ -109,13 +109,13 @@ const crawlAll = async () => {
     'fcaugsburg.de',
     'profis.eintracht.de',
     'fc-union-berlin.de',
-    'herthabsc.com', // 2021-05-19 didn't work - 2021-05-19 worked
+    'herthabsc.com',
     'fc.de/',
     'werder.de',
     'f95.de/',
     'scp07.de',
     'hsv.de',
-    'vfb.de', // 2021-05-19 didn't work
+    'vfb.de',
     'sgf1903.de',
     'fc-heidenheim.de',
     'fc-erzgebirge.de/',
@@ -136,6 +136,7 @@ const crawlAll = async () => {
     'eintracht.com',
     'fck.de',
     'mainz05.de', // 2021-05-19 didn't work
+    'arminia.de', // 2021-05-19 didn't work
   ];
 
   let crawlTries = 0;
