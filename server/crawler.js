@@ -5,7 +5,8 @@ const dataBaseFunctions = require('./db.js');
 const getCrawlInfo = dataBaseFunctions.getCrawlInfo;
 const storeArticle = dataBaseFunctions.storeArticle;
 
-const databaseCheck = require('./database_check.js');
+const sitesCheck = require('./sites_check.js');
+const logSites = sitesCheck.logSites;
 
 //newspage: address of the website
 //articleContainer: Contains both the headline and the link
@@ -14,7 +15,7 @@ const databaseCheck = require('./database_check.js');
 const crawl = async (site, newspage, articleContainer, headlineElement, hrefElement) => {
     console.log(`Crawling: ${site}`)
     const headlessBrowser = await puppeteer.launch({
-      headless: false,
+      headless: true,
     });
     headlessBrowser.on('diconnected', () => {
       console.log('Browser closed');
@@ -94,9 +95,9 @@ const saveArticles = (articles) => {
 
 // Function that crawls all websites defined inside the function
 const crawlAll = async () => {
-  const sites = [
-    'fcbayern.com',
-    'dierotenbullen.com',
+  let sites = [
+    'fcbayern.com', // worked all the time, 2021-05-19 didn't work
+    'dierotenbullen.com', // 2021-05-19 didn't work - 2021-05-19 worked
     'bvb.de',
     'borussia.de',
     'bayer04.de',
@@ -108,13 +109,13 @@ const crawlAll = async () => {
     'fcaugsburg.de',
     'profis.eintracht.de',
     'fc-union-berlin.de',
-    'herthabsc.com',
+    'herthabsc.com', // 2021-05-19 didn't work - 2021-05-19 worked
     'fc.de/',
     'werder.de',
     'f95.de/',
     'scp07.de',
     'hsv.de',
-    'vfb.de',
+    'vfb.de', // 2021-05-19 didn't work
     'sgf1903.de',
     'fc-heidenheim.de',
     'fc-erzgebirge.de/',
@@ -134,16 +135,28 @@ const crawlAll = async () => {
     'tsv1860.de',
     'eintracht.com',
     'fck.de',
-    'mainz05.de',
+    'mainz05.de', // 2021-05-19 didn't work
   ];
 
-  // for of for concurrent crawling
-  // forEach for asynchronous crawling
-  for (site of sites) {
-    const info = await getCrawlInfo(site);
-    const articles = await crawl(info.site, info.newspage, info.article_container, info.headline_element, info.href_element);
-    await saveArticles(articles);
+  let crawlTries = 0;
+
+  while (sites.length && crawlTries < 5) {
+    console.log(`Try number: ${crawlTries}`)
+
+    // for of for concurrent crawling
+    // forEach for asynchronous crawling
+    for (site of sites) {
+      const info = await getCrawlInfo(site);
+      const articles = await crawl(info.site, info.newspage, info.article_container, info.headline_element, info.href_element);
+      await saveArticles(articles);
+    }
+
+    sites = await logSites(sites, false, true);
+    console.log(`Sites I couldn't crawl: ${sites}`)
+
+    crawlTries++;
   }
+
 }
 
 module.exports = {
